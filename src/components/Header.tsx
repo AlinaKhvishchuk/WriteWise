@@ -3,10 +3,13 @@ import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
+
+import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 
 import SearchIcon from "@mui/icons-material/Search";
 import IconButton from "@mui/material/IconButton";
+
 import Logo from "../assets/ww-logo.svg";
 
 const Search = styled("div")(({ theme }) => ({
@@ -58,9 +61,14 @@ const Header = () => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton aria-label="logo">
-            <img src={Logo} width="40" height="40" />
-          </IconButton>
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+          >
+            WriteWise
+          </Typography>
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
