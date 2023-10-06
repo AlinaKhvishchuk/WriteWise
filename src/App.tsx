@@ -1,12 +1,13 @@
 import Articles from "./components/Articles";
 import Header from "./components/Header";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [search, setSearch] = useState("");
   return (
     <>
-      <Header />
-
-      <Articles />
+      <Header setSearchHandler={setSearch} />
+      <Articles search={search} />
     </>
   );
 }

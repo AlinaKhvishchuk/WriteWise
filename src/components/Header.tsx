@@ -8,9 +8,6 @@ import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 
 import SearchIcon from "@mui/icons-material/Search";
-import IconButton from "@mui/material/IconButton";
-
-import Logo from "../assets/ww-logo.svg";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -42,7 +39,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "inherit",
   "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create("width"),
     width: "100%",
@@ -52,11 +48,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const Header = () => {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
-    React.useState<null | HTMLElement>(null);
-
+const Header = ({ setSearchHandler }) => {
+  const changeSearchHandler = (evt) => {
+    setSearchHandler(evt.target.value);
+  };
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -76,6 +71,7 @@ const Header = () => {
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ "aria-label": "search" }}
+              onChange={changeSearchHandler}
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
