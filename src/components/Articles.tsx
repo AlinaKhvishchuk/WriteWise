@@ -58,6 +58,20 @@ const Articles = ({ search }) => {
       ? articles.filter((item) => selectedTopics.includes(item.topic))
       : articles;
 
+  //   const sortedArticles =
+  //     selectedSortingValue.length > 0
+  //       ? selectedArticles.sort((a, b) => a.article_id - b.article_id)
+  //       : selectedArticles;
+
+  const sortedArticles = selectedArticles.sort((a, b) => {
+    if (selectedSortingValue === "date") {
+      return new Date(b.created_at) - new Date(a.created_at);
+    } else if (selectedSortingValue === "id") {
+      return b.article_id - a.article_id;
+    } else if (selectedSortingValue === "title") {
+      return a.title.localeCompare(b.title);
+    }
+  });
   return (
     <>
       <FilterBar
@@ -72,7 +86,7 @@ const Articles = ({ search }) => {
         setSelectedSortingValue={setSelectedSortingValue}
       />
       <AddArticle onAddArticle={onAddArticleHandler} articles={articles} />
-      <ArticleList articles={selectedArticles} search={search} />
+      <ArticleList articles={sortedArticles} search={search} />
     </>
   );
 };
