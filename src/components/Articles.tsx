@@ -5,6 +5,7 @@ import AddArticle from "./AddArticle";
 import ArticleList from "./ArticleList.js";
 import FilterBar from "./FilterBar.js";
 import { fetchTopics } from "../../utils";
+import SortBar from "./SortBar.js";
 
 const Articles = ({ search }) => {
   const [articles, setArticles] = useState([]);
@@ -12,6 +13,8 @@ const Articles = ({ search }) => {
   const [currTopics, setCurrTopics] = useState([]);
   const [selectedTopics, setSelectedTopics] = useState([]);
   const [selectedAuthors, setSelectedAuthors] = useState([]);
+  const [sortedById, setSertedById] = useState([]);
+  const [selectedSortingValue, setSelectedSortingValue] = useState("");
 
   useEffect(() => {
     fetchArticles()
@@ -63,6 +66,10 @@ const Articles = ({ search }) => {
         selectedAuthors={selectedAuthors}
         setSelectedTopics={setSelectedTopics}
         setSelectedAuthors={setSelectedAuthors}
+      />
+      <SortBar
+        selectedSortingValue={selectedSortingValue}
+        setSelectedSortingValue={setSelectedSortingValue}
       />
       <AddArticle onAddArticle={onAddArticleHandler} articles={articles} />
       <ArticleList articles={selectedArticles} search={search} />

@@ -28,7 +28,7 @@ function getStyles(name: string, personName: readonly string[], theme: Theme) {
   };
 }
 
-const MultipleSelect = ({ options, selectedValues, handleChange }) => {
+const MultipleSelect = ({ options, selectedValues = [], handleChange }) => {
   const theme = useTheme();
 
   const handleSelectionChange = (
@@ -43,12 +43,12 @@ const MultipleSelect = ({ options, selectedValues, handleChange }) => {
   return (
     <div>
       <FormControl sx={{ m: 1, width: 300 }}>
-        <InputLabel id="demo-multiple-chip-label">Chip</InputLabel>
+        <InputLabel id="demo-multiple-chip-label">Filter</InputLabel>
         <Select
           labelId="demo-multiple-chip-label"
           id="demo-multiple-chip"
-          multiple
           value={selectedValues}
+          multiple
           onChange={handleSelectionChange}
           input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
           renderValue={(selected) => (

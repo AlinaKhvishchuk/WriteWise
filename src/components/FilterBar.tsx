@@ -1,4 +1,4 @@
-import MultipleSelect from "./Select";
+import MultipleSelect from "./MultipleSelect";
 import { useEffect, useState } from "react";
 import { fetchTopics } from "../../utils";
 
