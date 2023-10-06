@@ -18,6 +18,11 @@ const Articles = () => {
       });
   }, []);
 
+  const onAddArticleHandler = (newArticle) => {
+    setArticles((prevArticles) => {
+      return [newArticle, ...articles];
+    });
+  };
   if (!articles.length) return null;
 
   if (isLoading) {
@@ -35,7 +40,7 @@ const Articles = () => {
 
   return (
     <>
-      <AddArticle />
+      <AddArticle onAddArticle={onAddArticleHandler} articles={articles} />
       <ArticleList articles={articles} />
     </>
   );

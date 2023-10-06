@@ -3,9 +3,15 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
+import { format } from "date-fns";
 
 const ArticleCard = ({ article }) => {
-  const { article_id, title, topic, created_at, article_img_url } = article;
+  const { article_id, title, topic, created_at, article_img_url, author } =
+    article;
+  let formattedDate = created_at
+    ? format(new Date(created_at), "MM/dd/yyyy")
+    : "Invalid Date";
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
@@ -24,6 +30,12 @@ const ArticleCard = ({ article }) => {
           </Typography>
           <Typography variant="body2" color="text.secondary">
             article ID: {article_id}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {formattedDate}
+          </Typography>
+          <Typography variant="body1" color="text.secondary">
+            By {author}
           </Typography>
         </CardContent>
       </CardActionArea>
