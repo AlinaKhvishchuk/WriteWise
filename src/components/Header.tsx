@@ -10,18 +10,20 @@ import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 
 const Search = styled("div")(({ theme }) => ({
+  display: "flex",
   position: "relative",
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
   "&:hover": {
     backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
-  marginRight: theme.spacing(2),
+
   marginLeft: 0,
   width: "100%",
   [theme.breakpoints.up("sm")]: {
     marginLeft: theme.spacing(3),
-    width: "auto",
+
+    width: "50%",
   },
 }));
 
@@ -56,9 +58,11 @@ const Header = ({ setSearchHandler }: HeaderProps) => {
     setSearchHandler(evt.currentTarget.value || "");
   };
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, justifyContent: "space-between", width: "100%" }}>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar
+          sx={{ width: "100%", display: "flex", boxSizing: "border-box" }}
+        >
           <Typography
             variant="h6"
             noWrap
@@ -77,7 +81,6 @@ const Header = ({ setSearchHandler }: HeaderProps) => {
               onChange={changeSearchHandler}
             />
           </Search>
-          <Box sx={{ flexGrow: 1 }} />
         </Toolbar>
       </AppBar>
     </Box>
