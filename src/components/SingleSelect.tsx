@@ -7,6 +7,12 @@ import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Chip from "@mui/material/Chip";
 
+type SingleSelectProps = {
+  options: string[];
+  selectedValues: string;
+  handleChange: (arg: string) => void;
+};
+
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -26,7 +32,11 @@ function getStyles(name: string, personName: readonly string[], theme: Theme) {
   };
 }
 
-const SingleSelect = ({ options, selectedValues = [], handleChange }) => {
+const SingleSelect = ({
+  options,
+  selectedValues = "",
+  handleChange,
+}: SingleSelectProps) => {
   const theme = useTheme();
 
   const handleSelectionChange = (
@@ -35,7 +45,7 @@ const SingleSelect = ({ options, selectedValues = [], handleChange }) => {
     const {
       target: { value },
     } = event;
-    handleChange(value as string);
+    handleChange(value);
   };
 
   return (

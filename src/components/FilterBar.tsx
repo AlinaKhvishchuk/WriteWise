@@ -1,25 +1,25 @@
 import MultipleSelect from "./MultipleSelect";
-import { useEffect, useState } from "react";
-import { fetchTopics } from "../../utils";
+
+type FilterBarProps = {
+  currTopics: string[];
+  selectedTopics: string[];
+  setSelectedTopics: (topics: string[]) => void;
+};
 
 const FilterBar = ({
   currTopics,
   selectedTopics,
-  selectedAuthors,
   setSelectedTopics,
-  setSelectedAuthors,
-}) => {
+}: FilterBarProps) => {
   if (!currTopics.length) return null;
 
-  if (currTopics) {
-    return (
-      <MultipleSelect
-        options={currTopics}
-        selectedValues={selectedTopics}
-        handleChange={setSelectedTopics}
-      />
-    );
-  }
+  return (
+    <MultipleSelect
+      options={currTopics}
+      selectedValues={selectedTopics}
+      handleChange={setSelectedTopics}
+    />
+  );
 };
 
 export default FilterBar;

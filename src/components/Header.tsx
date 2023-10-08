@@ -48,9 +48,12 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const Header = ({ setSearchHandler }) => {
-  const changeSearchHandler = (evt) => {
-    setSearchHandler(evt.target.value);
+type HeaderProps = {
+  setSearchHandler: (search: string) => void;
+};
+const Header = ({ setSearchHandler }: HeaderProps) => {
+  const changeSearchHandler = (evt: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchHandler(evt.currentTarget.value || "");
   };
   return (
     <Box sx={{ flexGrow: 1 }}>

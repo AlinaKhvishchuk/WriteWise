@@ -1,6 +1,14 @@
 import SingleSelect from "./SingleSelect";
 
-const SortBar = ({ selectedSortingValue, setSelectedSortingValue }) => {
+type SortBarProps = {
+  selectedSortingValue: string;
+  setSelectedSortingValue: (value: string) => void;
+};
+
+const SortBar = ({
+  selectedSortingValue,
+  setSelectedSortingValue,
+}: SortBarProps) => {
   const sortingOptions = ["id", "title", "date"];
   //   if (!currTopics.length) return null;
 

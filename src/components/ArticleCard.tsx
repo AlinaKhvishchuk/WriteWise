@@ -5,7 +5,16 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import { format } from "date-fns";
 
-const ArticleCard = ({ article }) => {
+export type Article = {
+  article_id: number;
+  title: string;
+  topic: string;
+  created_at: string;
+  article_img_url: string;
+  author: string;
+};
+
+const ArticleCard = ({ article }: { article: Article }) => {
   const { article_id, title, topic, created_at, article_img_url, author } =
     article;
   let formattedDate = created_at

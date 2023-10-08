@@ -1,12 +1,17 @@
 import ArticleCard from "./ArticleCard";
 import Grid from "@mui/material/Grid";
-
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { Icon } from "@mui/material";
 import SentimentDissatisfiedIcon from "@mui/icons-material/SentimentDissatisfied";
+import type { Article } from "./ArticleCard";
 
-const ArticleList = ({ articles, search }) => {
+type ArticleListProps = {
+  articles: Article[];
+  search: string;
+};
+
+const ArticleList = ({ articles, search }: ArticleListProps) => {
   const filteredArticles = articles.filter((item) => {
     return (
       search.toLowerCase() === "" ||

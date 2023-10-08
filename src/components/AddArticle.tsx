@@ -1,14 +1,15 @@
 import { Formik, Form, Field } from "formik";
 import * as yup from "yup";
 import { TextField, Button, Grid } from "@mui/material";
+import type { Article } from "./ArticleCard";
 
-interface FormValues {
+export type FormValues = {
   title: string;
-  topic: string; // Add the "topic" field
+  topic: string;
   image: string;
   description: string;
-  author: string; // Add the "author" field
-}
+  author: string;
+};
 
 const validationSchema = yup.object({
   title: yup.string().required("Title is required"),
@@ -18,7 +19,12 @@ const validationSchema = yup.object({
   author: yup.string().required("Author is required"), // Add validation for "author"
 });
 
-const AddArticle = ({ onAddArticle, articles }) => {
+type AddArticleProps = {
+  onAddArticle: (values: FormValues) => void;
+  articles: Article[];
+};
+
+const AddArticle = ({ onAddArticle, articles }: AddArticleProps) => {
   const initialValues: FormValues = {
     title: "",
     topic: "", // Initialize "topic"
@@ -27,7 +33,10 @@ const AddArticle = ({ onAddArticle, articles }) => {
     author: "", // Initialize "author"
   };
 
-  const submitHandler = (values, { resetForm }) => {
+  const submitHandler = (
+    values: FormValues,
+    { resetForm }: { resetForm: () => void }
+  ) => {
     const valuesData = {
       ...values,
       created_at: new Date(),
