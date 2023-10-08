@@ -58,11 +58,6 @@ const Articles = ({ search }) => {
       ? articles.filter((item) => selectedTopics.includes(item.topic))
       : articles;
 
-  //   const sortedArticles =
-  //     selectedSortingValue.length > 0
-  //       ? selectedArticles.sort((a, b) => a.article_id - b.article_id)
-  //       : selectedArticles;
-
   const sortedArticles = selectedArticles.sort((a, b) => {
     if (selectedSortingValue === "date") {
       return new Date(b.created_at) - new Date(a.created_at);
