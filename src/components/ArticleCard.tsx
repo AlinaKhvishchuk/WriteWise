@@ -22,7 +22,7 @@ const ArticleCard = ({ article }: { article: Article }) => {
     : "Invalid Date";
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, height: "100%" }}>
       <CardActionArea>
         <CardMedia
           component="img"
