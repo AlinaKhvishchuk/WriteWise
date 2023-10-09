@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
-import { fetchArticles } from "../../utils.js";
+import { fetchArticles } from "../../../utils.js";
 import Typography from "@mui/material/Typography";
 import AddArticle from "./AddArticle";
 import ArticleList from "./ArticleList.js";
-import FilterBar from "./FilterBar.js";
-import { fetchTopics } from "../../utils";
-import SortBar from "./SortBar.js";
+import FilterBar from "../Sidebar/FilterBar.js";
+import { fetchTopics } from "../../../utils";
+import SortBar from "../Sidebar/SortBar.js";
 import Box from "@mui/material/Box";
 import type { Article } from "./ArticleCard";
 import type { FormValues } from "./AddArticle";
-import FormDialog from "./FormDialog.js";
+import FormDialog from "../Sidebar/FormDialog.js";
 
 type ArticlesProps = {
   search: string;

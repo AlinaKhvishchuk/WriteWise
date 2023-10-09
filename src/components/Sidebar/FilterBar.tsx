@@ -1,4 +1,4 @@
-import MultipleSelect from "./MultipleSelect";
+import MultipleSelect from "../UI/MultipleSelect";
 
 type FilterBarProps = {
   currTopics: string[];

@@ -9,7 +9,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import { Formik, Form, Field } from "formik";
 import * as yup from "yup";
 import { TextField, Button, Grid } from "@mui/material";
-import type { Article } from "./ArticleCard";
+import type { Article } from "../Articles/ArticleCard";
 
 export type FormValues = {
   title: string;
@@ -66,7 +66,15 @@ const FormDialog = ({ onAddArticle, articles }: FormDialogProps) => {
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button
+        variant="outlined"
+        onClick={handleClickOpen}
+        sx={{
+          marginLeft: "8px",
+          marginTop: "20px",
+          width: "280px",
+        }}
+      >
         Add a new article
       </Button>
       <Dialog open={open} onClose={handleClose}>

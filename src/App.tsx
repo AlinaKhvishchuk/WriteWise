@@ -1,4 +1,4 @@
-import Articles from "./components/Articles";
+import Articles from "./components/Articles/Articles";
 import Header from "./components/Header";
 import { useEffect, useState } from "react";
 

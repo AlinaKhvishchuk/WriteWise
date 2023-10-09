@@ -1,4 +1,4 @@
-import SingleSelect from "./SingleSelect";
+import SingleSelect from "../UI/SingleSelect";
 
 type SortBarProps = {
   selectedSortingValue: string;
