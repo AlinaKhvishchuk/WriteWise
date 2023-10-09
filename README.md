@@ -12,7 +12,7 @@ The application is designed for type safety and follows best practices for React
 
 - **Header Section**: The header displays the page title and includes a search bar for filtering articles by name.
 
-- **List of Items**: The application fetches and displays a list of articles from my own API endpoint. The project uses an API created by me ([NC_News_API](https://nc-news-00jh.onrender.com/api/)). Each article includes the following information: id, title, author, description, image_url and date.
+- **List of Items**: The application fetches and displays a list of articles from my own API endpoint. The project uses an API created by me ([NC_News_API](https://nc-news-00jh.onrender.com/api/)). First loading could take some time because of 'cold start'. Each article includes the following information: id, title, author, description, image_url and date.
 
 - **Filter Functionality**: Users can apply multiple filters to the list of articles.
 

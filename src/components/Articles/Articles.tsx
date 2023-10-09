@@ -10,6 +10,7 @@ import Box from "@mui/material/Box";
 import type { Article } from "./ArticleCard";
 import type { FormValues } from "./AddArticle";
 import FormDialog from "../Sidebar/FormDialog.js";
+import Spinner from "../UI/Spinner.js";
 
 type ArticlesProps = {
   search: string;
@@ -50,19 +51,9 @@ const Articles = ({ search }: ArticlesProps) => {
       return [newArticle, ...articles];
     });
   };
-  if (!articles.length) return null;
 
   if (isLoading) {
-    return (
-      <Typography
-        variant="h6"
-        noWrap
-        component="div"
-        sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
-      >
-        Loading...
-      </Typography>
-    );
+    return <Spinner />;
   }
 
   const selectedArticles =
@@ -79,6 +70,7 @@ const Articles = ({ search }: ArticlesProps) => {
       return a.title.localeCompare(b.title);
     }
   });
+  if (!articles.length) return null;
 
   return (
     <>
