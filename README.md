@@ -18,7 +18,7 @@ The application is designed for type safety and follows best practices for React
 
 - **Sort Functionality**: Users can sort all articles by various attributes such as name, id, or date.
 
-- **Add New Items**: The application includes a form to add new article to the list. My API doesn't have POST endpoint, that is why a new article add to state and renders on the list of all articles. The form has fields for at title, description, image URL, author.
+- **Add New Items**: The application includes a form to add new article to the list. Since my API lacks a POST endpoint, new articles are added to the state and displayed on the list of all articles. The form has fields for at title, description, image URL, author.
 
 ## Technologies Used
 
