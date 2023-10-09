@@ -10,7 +10,6 @@ const SortBar = ({
   setSelectedSortingValue,
 }: SortBarProps) => {
   const sortingOptions = ["id", "title", "date"];
-  //   if (!currTopics.length) return null;
 
   return (
     <SingleSelect

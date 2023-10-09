@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
 import { fetchArticles } from "../../../utils.js";
-import Typography from "@mui/material/Typography";
-import AddArticle from "./AddArticle";
 import ArticleList from "./ArticleList.js";
 import FilterBar from "../Sidebar/FilterBar.js";
 import { fetchTopics } from "../../../utils";
 import SortBar from "../Sidebar/SortBar.js";
 import Box from "@mui/material/Box";
-import type { Article } from "./ArticleCard";
 import type { FormValues } from "./AddArticle";
 import FormDialog from "../Sidebar/FormDialog.js";
 import Spinner from "../UI/Spinner.js";
@@ -25,8 +22,6 @@ const Articles = ({ search }: ArticlesProps) => {
   const [isLoading, setIsLoading] = useState(true);
   const [currTopics, setCurrTopics] = useState([]);
   const [selectedTopics, setSelectedTopics] = useState([]);
-  // const [selectedAuthors, setSelectedAuthors] = useState([]);
-  // const [sortedById, setSortedById] = useState([]);
   const [selectedSortingValue, setSelectedSortingValue] = useState("");
 
   useEffect(() => {
@@ -88,7 +83,6 @@ const Articles = ({ search }: ArticlesProps) => {
           />
           <FormDialog onAddArticle={onAddArticleHandler} articles={articles} />
         </Box>
-        {/* <AddArticle onAddArticle={onAddArticleHandler} articles={articles} /> */}
         <ArticleList articles={sortedArticles} search={search} />
       </Box>
     </>

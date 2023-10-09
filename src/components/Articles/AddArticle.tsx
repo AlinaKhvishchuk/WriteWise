@@ -15,8 +15,8 @@ const validationSchema = yup.object({
   title: yup.string().required("Title is required"),
   image: yup.string().required("Image URL is required"),
   description: yup.string().required("Description is required"),
-  topic: yup.string().required("Topic is required"), // Add validation for "topic"
-  author: yup.string().required("Author is required"), // Add validation for "author"
+  topic: yup.string().required("Topic is required"),
+  author: yup.string().required("Author is required"),
 });
 
 type AddArticleProps = {
@@ -27,10 +27,10 @@ type AddArticleProps = {
 const AddArticle = ({ onAddArticle, articles }: AddArticleProps) => {
   const initialValues: FormValues = {
     title: "",
-    topic: "", // Initialize "topic"
+    topic: "",
     image: "",
     description: "",
-    author: "", // Initialize "author"
+    author: "",
   };
 
   const submitHandler = (
@@ -69,7 +69,7 @@ const AddArticle = ({ onAddArticle, articles }: AddArticleProps) => {
             <Grid item xs={12}>
               <Field
                 name="topic"
-                as={TextField} // Add "topic" field
+                as={TextField}
                 label="Topic"
                 fullWidth
                 variant="outlined"
@@ -104,7 +104,7 @@ const AddArticle = ({ onAddArticle, articles }: AddArticleProps) => {
             <Grid item xs={12}>
               <Field
                 name="author"
-                as={TextField} // Add "author" field
+                as={TextField}
                 label="Author"
                 fullWidth
                 variant="outlined"

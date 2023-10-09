@@ -4,7 +4,8 @@ This project is an implementation of a dynamic front page of a news website, cre
 
 - a search bar for filtering articles
 - sorting functionality
-- the ability to add new articles.
+- the ability to add new articles
+- pagination
 
 The application is designed for type safety and follows best practices for React development.
 
