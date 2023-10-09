@@ -70,6 +70,7 @@ const Articles = ({ search }: ArticlesProps) => {
       return a.title.localeCompare(b.title);
     }
   });
+
   if (!articles.length) return null;
 
   return (
