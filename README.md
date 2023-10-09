@@ -1,22 +1,24 @@
 # WriteWise - Dynamic Front Page with React, TypeScript, Formik, and MUI
 
-This project is an implementation of a dynamic front page created using React.js and TypeScript. It allows users to interact with a list of items fetched from an API endpoint. The front page features:
+This project is an implementation of a dynamic front page of a news website, created using React.js and TypeScript. It allows users to interact with a list of article fetched from an API endpoint. The front page features:
 
-- a search bar for filtering items
+- a search bar for filtering articles
 - sorting functionality
-- the ability to add new items.
+- the ability to add new articles.
 
 The application is designed for type safety and follows best practices for React development.
 
 ## Features
 
-- **Header Section**: The header displays the page title and includes a search bar for filtering items by name.
+- **Header Section**: The header displays the page title and includes a search bar for filtering articles by name.
 
-- **List of Items**: The application fetches and displays a list of items from my own API endpoint (The project uses an API created by me ([NC_News_API](https://nc-news-00jh.onrender.com/api/)). Each item includes the following information: id, title, author, description, image_url and date.
+- **List of Items**: The application fetches and displays a list of articles from my own API endpoint. The project uses an API created by me ([NC_News_API](https://nc-news-00jh.onrender.com/api/)). Each article includes the following information: id, title, author, description, image_url and date.
 
-- **Sort Functionality**: Users can sort the list of items by various attributes such as name, id, or date.
+- **Filter Functionality**: Users can apply multiple filters to the list of articles.
 
-- **Add New Items**: The application includes a form to add new items to the list. The form has fields for at title, description, image URL, author.
+- **Sort Functionality**: Users can sort all articles by various attributes such as name, id, or date.
+
+- **Add New Items**: The application includes a form to add new article to the list. My API doesn't have POST endpoint, that is why a new article add to state and renders on the list of all articles. The form has fields for at title, description, image URL, author.
 
 ## Technologies Used
 
