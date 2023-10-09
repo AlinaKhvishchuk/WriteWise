@@ -8,6 +8,12 @@ import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Chip from "@mui/material/Chip";
 
+type MultipleSelectProps = {
+  options: string[];
+  selectedValues: string[];
+  handleChange: (arg: string[]) => void;
+};
+
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -28,7 +34,11 @@ function getStyles(name: string, personName: readonly string[], theme: Theme) {
   };
 }
 
-const MultipleSelect = ({ options, selectedValues = [], handleChange }) => {
+const MultipleSelect = ({
+  options,
+  selectedValues,
+  handleChange,
+}: MultipleSelectProps) => {
   const theme = useTheme();
 
   const handleSelectionChange = (
@@ -37,12 +47,12 @@ const MultipleSelect = ({ options, selectedValues = [], handleChange }) => {
     const {
       target: { value },
     } = event;
-    handleChange(value as string[]);
+    handleChange(value);
   };
 
   return (
     <div>
-      <FormControl sx={{ m: 1, width: 300 }}>
+      <FormControl sx={{ m: 1, width: 280, marginTop: "0" }}>
         <InputLabel id="demo-multiple-chip-label">Filter</InputLabel>
         <Select
           labelId="demo-multiple-chip-label"
@@ -51,9 +61,9 @@ const MultipleSelect = ({ options, selectedValues = [], handleChange }) => {
           multiple
           onChange={handleSelectionChange}
           input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
-          renderValue={(selected) => (
+          renderValue={(selected: string[]) => (
             <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
-              {selected.map((value) => (
+              {selected.map((value: string) => (
                 <Chip key={value} label={value} />
               ))}
             </Box>

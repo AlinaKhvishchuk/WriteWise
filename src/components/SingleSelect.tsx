@@ -50,7 +50,7 @@ const SingleSelect = ({
 
   return (
     <div>
-      <FormControl sx={{ m: 1, width: 300 }}>
+      <FormControl sx={{ m: 1, width: 280 }}>
         <InputLabel id="demo-multiple-chip-label">Sort</InputLabel>
         <Select
           labelId="demo-multiple-chip-label"

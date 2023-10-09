@@ -6,8 +6,10 @@ import ArticleList from "./ArticleList.js";
 import FilterBar from "./FilterBar.js";
 import { fetchTopics } from "../../utils";
 import SortBar from "./SortBar.js";
+import Box from "@mui/material/Box";
 import type { Article } from "./ArticleCard";
 import type { FormValues } from "./AddArticle";
+import FormDialog from "./FormDialog.js";
 
 type ArticlesProps = {
   search: string;
@@ -80,17 +82,22 @@ const Articles = ({ search }: ArticlesProps) => {
 
   return (
     <>
-      <FilterBar
-        currTopics={currTopics}
-        selectedTopics={selectedTopics}
-        setSelectedTopics={setSelectedTopics}
-      />
-      <SortBar
-        selectedSortingValue={selectedSortingValue}
-        setSelectedSortingValue={setSelectedSortingValue}
-      />
-      <AddArticle onAddArticle={onAddArticleHandler} articles={articles} />
-      <ArticleList articles={sortedArticles} search={search} />
+      <Box sx={{ display: "flex" }}>
+        <Box sx={{ marginTop: "20px" }}>
+          <FilterBar
+            currTopics={currTopics}
+            selectedTopics={selectedTopics}
+            setSelectedTopics={setSelectedTopics}
+          />
+          <SortBar
+            selectedSortingValue={selectedSortingValue}
+            setSelectedSortingValue={setSelectedSortingValue}
+          />
+          <FormDialog onAddArticle={onAddArticleHandler} articles={articles} />
+        </Box>
+        {/* <AddArticle onAddArticle={onAddArticleHandler} articles={articles} /> */}
+        <ArticleList articles={sortedArticles} search={search} />
+      </Box>
     </>
   );
 };
